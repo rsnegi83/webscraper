@@ -28,7 +28,7 @@ public class WebScraper {
 
     public static LocalTime time = null;
 
-    public static Trie trie = null;
+    public static Trie trie = new Trie();
 
     //storing the top 10 frequent words
     public static PriorityQueue<FrequentWords> singleWord = new PriorityQueue<FrequentWords>();
@@ -40,8 +40,6 @@ public class WebScraper {
 
     //maximum depth allowed to go as link within a link
     public static final int hypelinkDepth = 4;
-
-    public static List<String> x = new ArrayList<String>();
 
     //hashMap to store the explored urls, so that if same hyperlink
     //is found again inside another hyperlink we don't hit it again
@@ -73,6 +71,8 @@ public class WebScraper {
             System.out.println("pair" + pair.remove());
         }
 
+        System.out.println("Printing all the urls that have been explored");
+        System.out.println("_________________________________________________________________________________");
         //print all the urls that have been explored
         for (Map.Entry mapElement : encounterdUrl.entrySet()) {
             System.out.println("key: " + mapElement.getKey().toString() + "  value: " + mapElement.getValue().toString());
